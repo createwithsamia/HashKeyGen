@@ -6,7 +6,7 @@ HashKeyGen is a simple, user-friendly, single-page web application that generate
 - 20 Instagram categories with 5 sub-niches each.
 - Generates exactly 5 hashtags and 10 keywords.
 - Simple and user-friendly interface.
-- Fast, interactive, and responsive design.
+- Fast, interactive, and responsive design. 
 
 ### Technologies Used -
 - HTML
