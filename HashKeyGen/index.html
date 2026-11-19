@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HashKeyGen</title>
+  <meta name="description" content="Generate niche-based Instagram hashtags and keywords for your posts.">
+  <!-- Google Font (works online; a system font is used if offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1. HEADER -->
+  <header class="header">
+    <a href="#home" class="logo">
+  <span class="logo-icon">#</span>
+  <span class="logo-text">
+    <span class="logo-name"><span class="logo-black">HashKey</span>Gen</span>
+    <small class="tagline">Instagram Hashtag &amp; Keyword Generator</small>
+  </span>
+</a>
+    <nav class="nav">
+      <a href="#home">Home</a>
+      <a href="#generator">Generator</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 2. HERO -->
+    <section class="hero" id="home">
+      <h1>Find the perfect hashtags and keywords for every post! </h1>
+      <p>Pick your niche, describe your post, and HashKeyGen suggests 5 hashtags and 10 keywords in seconds.</p>
+      <a href="#generator" class="btn btn-white">Start generating</a>
+    </section>
+
+    <!-- 3. GENERATOR -->
+    <section class="section" id="generator">
+      <div class="card">
+        <h2>Generate for your post</h2>
+
+        <label>1. Pick a category</label>
+        <!-- Category cards are created by script.js (setupCategories) -->
+        <div class="cat-grid" id="catGrid"></div>
+
+        <div class="select-row">
+          <div>
+            <label for="niche">Main category</label>
+            <select id="niche">
+              <option value="">Select a category…</option>
+            </select>
+          </div>
+          <div>
+            <label for="subniche">Sub-niche</label>
+            <select id="subniche" disabled>
+              <option value="">Choose a category first</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="sub-desc hidden" id="subDesc"></p>
+
+        <label for="topic">2. Describe your post topic</label>
+        <input type="text" id="topic" maxlength="100" placeholder="e.g. BGMI gameplay with an amazing clutch">
+        <small class="counter"><span id="count">0</span>/100 characters</small>
+
+        <p class="error" id="error" role="alert"></p>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" id="generateBtn">Generate</button>
+          <button class="btn btn-light" id="resetBtn">↺ Clear</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. RESULTS (hidden until Generate is clicked) -->
+    <section class="section hidden" id="results">
+      <div class="loader hidden" id="loader">
+        <div class="spinner"></div>
+        <p>Finding the best matches…</p>
+      </div>
+
+      <div id="resultContent" class="hidden">
+        <div class="results-head">
+          <h2>Your results</h2>
+          <div class="head-btns">
+            <button class="btn btn-light" id="regenBtn">Regenerate</button>
+            <button class="btn btn-primary" id="copyAllBtn">Copy All</button>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Hashtags <span class="badge">5</span></h3>
+            <div class="chips" id="hashtagList"></div>
+            <button class="btn btn-primary" id="copyTagsBtn">📋 Copy Hashtags</button>
+          </div>
+          <div class="card">
+            <h3>Keywords <span class="badge">10</span></h3>
+            <div class="chips" id="keywordList"></div>
+            <button class="btn btn-primary" id="copyKeywordsBtn">📋 Copy Keywords</button>
+          </div>
+        </div>
+        <p class="note">These suggestions come from a predefined list and our topic words. They are not claimed to be trending or verified by Instagram.</p>
+      </div>
+    </section>
+
+    <!-- 5. ABOUT -->
+    <section class="section" id="about">
+      <h2>About HashKeyGen</h2>
+      <p class="about-text">Choosing the right hashtags and keywords takes time, especially for new Instagram creators. HashKeyGen is a simple and user-friendly tool that saves time by generating relevant hashtags and keywords across 20 popular Instagram categories, based on what your post is about.</p>
+      <div class="grid three">
+        <div class="card small"><h3>🎯 Niche-based</h3><p>Suggestions are matched to 20 categories and 100 sub-niches, like Gaming → Mobile Gaming.</p></div>
+        <div class="card small"><h3>🧠 Topic-aware</h3><p>Your own words are checked, so different topics give different results.</p></div>
+        <div class="card small"><h3>⚡ Fast and simple</h3><p>Runs in your browser. No login, no server, no data stored.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 6. FOOTER -->
+  <footer class="footer">
+    <strong>HashKeyGen</strong> – Instagram Hashtag &amp; Keyword Generator<br>
+  </footer>
+
+  <!-- Copy notification -->
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

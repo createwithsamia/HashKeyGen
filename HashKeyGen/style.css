@@ -1,0 +1,197 @@
+/* ===== 1. Colour and size variables (change colours here) ===== */
+:root {
+  --purple: #6d28d9;
+  --blue: #2563eb;
+  --ink: #1e1b4b;
+  --muted: #5b5f7a;
+  --soft: #f3f0ff;
+  --white: #ffffff;
+  --radius: 20px;
+  --shadow: 0 10px 30px rgba(76, 29, 149, 0.15);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
+  color: var(--ink);
+  line-height: 1.6;
+  background: linear-gradient(160deg, #ede9fe 0%, #dbeafe 50%, #ffffff 100%) fixed;
+}
+
+.hidden { display: none !important; }
+
+/* ===== 2. Header ===== */
+.header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 6%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  position: sticky; top: 0; z-index: 10;
+  box-shadow: 0 2px 12px rgba(76, 29, 149, 0.08);
+}
+.logo { font-size: 1.4rem; font-weight: 800; color: var(--purple); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.logo-icon {
+  background: linear-gradient(135deg, var(--purple), var(--blue));
+  color: #fff; width: 34px; height: 34px; border-radius: 10px;
+  display: grid; place-items: center;
+}
+.logo-text {
+  display: flex;
+  flex-direction: column; /* puts the tagline under the name */
+  line-height: 1.1;
+}
+.tagline {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin-top: 3px;
+}
+.logo-black {
+  color: #000;   /* black colour for "HashKey" */
+}
+.nav a { margin-left: 22px; text-decoration: none; color: var(--ink); font-weight: 500; transition: color .2s; }
+.nav a:hover { color: var(--purple); }
+
+/* ===== 3. Hero ===== */
+.hero {
+  text-align: center; color: #fff;
+  padding: 90px 6% 80px;
+  background: linear-gradient(135deg, var(--purple), var(--blue));
+  border-radius: 0 0 40px 40px;
+}
+.hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; max-width: 760px; margin: 0 auto 16px; font-weight: 800; }
+.hero p { max-width: 560px; margin: 0 auto 28px; opacity: .92; font-size: 1.1rem; }
+
+/* ===== 4. Sections and cards ===== */
+.section { max-width: 1000px; margin: 0 auto; padding: 50px 6%; }
+.section > h2 { text-align: center; margin-bottom: 14px; font-size: 1.8rem; }
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  transition: transform .25s, box-shadow .25s;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(76, 29, 149, 0.22); }
+.card h2 { margin-bottom: 18px; }
+.card h3 { margin-bottom: 14px; }
+.card.small p { color: var(--muted); font-size: .95rem; }
+
+/* ===== 5. Form ===== */
+label { display: block; font-weight: 700; margin: 16px 0 6px; font-size: .95rem; }
+select, input {
+  width: 100%; padding: 14px 16px; font: inherit;
+  border: 2px solid #ddd6fe; border-radius: 14px; background: #fff; color: var(--ink);
+  transition: border-color .2s, box-shadow .2s;
+}
+select:focus, input:focus { outline: none; border-color: var(--purple); box-shadow: 0 0 0 4px rgba(109, 40, 217, .15); }
+.counter { display: block; text-align: right; color: var(--muted); margin-top: 4px; }
+.error { color: #b91c1c; background: #fee2e2; border-radius: 10px; padding: 10px 14px; margin-top: 12px; font-size: .92rem; display: none; }
+.error.show { display: block; }
+
+/* ===== 6. Buttons ===== */
+.btn-row { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+.btn {
+  border: none; cursor: pointer; font: inherit; font-weight: 700;
+  padding: 13px 24px; border-radius: 14px; text-decoration: none; display: inline-block;
+  transition: transform .2s, box-shadow .2s, background .2s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.btn-primary { background: linear-gradient(135deg, var(--purple), var(--blue)); color: #fff; box-shadow: 0 6px 16px rgba(109, 40, 217, .35); }
+.btn-light { background: var(--soft); color: var(--purple); }
+.btn-light:hover { background: #e4dcff; }
+.btn-white { background: #fff; color: var(--purple); }
+
+/* ===== 7. Results ===== */
+.results-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.grid.three { grid-template-columns: repeat(3, 1fr); margin-top: 24px; }
+.badge { background: var(--soft); color: var(--purple); font-size: .8rem; padding: 2px 10px; border-radius: 20px; margin-left: 6px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; }
+.chip {
+  background: var(--soft); color: var(--purple); font-weight: 500;
+  padding: 8px 14px; border-radius: 999px; font-size: .95rem;
+  animation: pop .35s ease both;
+}
+@keyframes pop { from { opacity: 0; transform: scale(.85); } to { opacity: 1; transform: scale(1); } }
+.note { text-align: center; color: var(--muted); font-size: .85rem; margin-top: 20px; }
+
+/* Loading spinner */
+.loader { text-align: center; padding: 40px 0; color: var(--purple); font-weight: 700; }
+.spinner {
+  width: 48px; height: 48px; margin: 0 auto 14px;
+  border: 5px solid #ddd6fe; border-top-color: var(--purple);
+  border-radius: 50%; animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* About */
+.about-text { text-align: center; max-width: 640px; margin: 0 auto; color: var(--muted); }
+
+/* ===== 8. Footer and toast ===== */
+.footer { text-align: center; padding: 30px 6%; background: var(--ink); color: #c4b5fd; margin-top: 30px; font-size: .92rem; }
+.footer strong { color: #fff; }
+.toast {
+  position: fixed; bottom: 30px; left: 50%;
+  transform: translate(-50%, 30px); opacity: 0; pointer-events: none;
+  background: #16a34a; color: #fff; padding: 12px 24px; border-radius: 999px;
+  font-weight: 700; box-shadow: var(--shadow); transition: all .3s; z-index: 20;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ===== 9. Mobile ===== */
+@media (max-width: 720px) {
+  .grid, .grid.three { grid-template-columns: 1fr; }
+  .nav a { margin-left: 12px; font-size: .9rem; }
+  .hero { padding: 60px 6% 50px; }
+  .btn-row .btn { flex: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ===== 10. NEW: Category cards, dropdowns, extra buttons ===== */
+.cat-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 8px; }
+.cat-card {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 14px 8px; font: inherit; font-weight: 700; font-size: .85rem; line-height: 1.25;
+  color: var(--ink); background: #fff; cursor: pointer;
+  border: 2px solid #ddd6fe; border-radius: 16px;
+  transition: transform .2s, box-shadow .2s, border-color .2s, background .2s, color .2s;
+}
+.cat-card:hover { transform: translateY(-4px); border-color: var(--purple); box-shadow: var(--shadow); }
+.cat-card:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.cat-card.active { background: linear-gradient(135deg, var(--purple), var(--blue)); color: #fff; border-color: transparent; box-shadow: 0 8px 20px rgba(109, 40, 217, .35); }
+.cat-icon { font-size: 1.6rem; transition: transform .2s; }
+.cat-card:hover .cat-icon { transform: scale(1.2) rotate(-6deg); }
+
+.select-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* Custom dropdown arrow */
+select {
+  appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 44px;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' fill='none' stroke='%236d28d9' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M1 1l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 16px center;
+}
+select:disabled { background-color: #f5f3ff; color: var(--muted); cursor: not-allowed; }
+
+.head-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.chip { cursor: pointer; transition: background .2s, color .2s; }
+.chip:hover { background: var(--purple); color: #fff; }
+
+@media (max-width: 720px) {
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .select-row { grid-template-columns: 1fr; }
+  .head-btns { width: 100%; }
+  .head-btns .btn { flex: 1; }
+}
+
+/* ===== 11. NEW: Sub-niche description box ===== */
+.sub-desc {
+  margin-top: 12px; padding: 10px 14px; border-radius: 12px;
+  background: var(--soft); color: var(--purple); font-size: .9rem; font-weight: 500;
+  animation: pop .3s ease both;
+}
